@@ -11,5 +11,5 @@ CHANNEL_NAME = '@sad_ogorod_2022'
 path = r'/app/files/Plan.xlsx'
 
 time1 = "09:00:00"
-time2 = "15:30:00"
+time2 = "12:45:00"
 time3 = "17:00:00"
