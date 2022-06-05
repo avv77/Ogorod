@@ -31,9 +31,9 @@ def function_to_run(list_into):
     for j in range(len(list_into)):
         data_list_plan_canal = str(list_into[j][0])
         if data_now_format == data_list_plan_canal:
-            time_1 = 'time1'
-            time_2 = 'time2'
-            time_3 = 'time3'
+            time_1 = time1
+            time_2 = time2
+            time_3 = time3
             time_list = str(list_into[j][1])
             if time_1 == time_list == time_format:
                 text = list_into[j][3]
@@ -55,16 +55,16 @@ def function_to_run(list_into):
                 break
 
 
-excel_plan = pandas.read_excel('path', sheet_name='Moscow')
+excel_plan = pandas.read_excel(path, sheet_name='Moscow')
 number_of_rows = len(excel_plan)
 list_plan_canal = []
 for i in range(number_of_rows):
     row = list(excel_plan.iloc[i])
     list_plan_canal.append(row)
 Thread(target=schedule_checker).start()
-schedule.every().day.at('time1').do(function_to_run, list_plan_canal)
-schedule.every().day.at('time2').do(function_to_run, list_plan_canal)
-schedule.every().day.at('time3').do(function_to_run, list_plan_canal)
+schedule.every().day.at(time1).do(function_to_run, list_plan_canal)
+schedule.every().day.at(time2).do(function_to_run, list_plan_canal)
+schedule.every().day.at(time3).do(function_to_run, list_plan_canal)
 
 try:
     bot.polling(none_stop=True)
