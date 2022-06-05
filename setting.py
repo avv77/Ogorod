@@ -8,7 +8,7 @@ bot = telebot.TeleBot(BOT_TOKEN)
 
 CHANNEL_NAME = '@sad_ogorod_2022'
 
-path = r'/files/Plan.xlsx'
+path = r'/app/files/Plan.xlsx'
 
 time1 = "09:00:00"
 time2 = "10:12:00"
