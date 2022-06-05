@@ -21,7 +21,7 @@ def read_day_info(list_into_2, number):
     text = list_into_2[number][3]
     photo = list_into_2[number][2]
     with open(photo, 'rb') as f:
-        bot.send_photo('CHANNEL_NAME', f, caption=text)
+        bot.send_photo(CHANNEL_NAME, f, caption=text)
 
 
 def function_to_run(list_into):
@@ -39,19 +39,19 @@ def function_to_run(list_into):
                 text = list_into[j][3]
                 photo = list_into[j][2]
                 with open(photo, 'rb') as f:
-                    bot.send_photo('CHANNEL_NAME', f, caption=text)
+                    bot.send_photo(CHANNEL_NAME, f, caption=text)
                 break
             elif time_2 == time_list == time_format:
                 text = list_into[j][3]
                 photo = list_into[j][2]
                 with open(photo, 'rb') as f:
-                    bot.send_photo('CHANNEL_NAME', f, caption=text)
+                    bot.send_photo(CHANNEL_NAME, f, caption=text)
                 break
             elif time_3 == time_list == time_format:
                 text = list_into[j][3]
                 photo = list_into[j][2]
                 with open(photo, 'rb') as f:
-                    bot.send_photo('CHANNEL_NAME', f, caption=text)
+                    bot.send_photo(CHANNEL_NAME, f, caption=text)
                 break
 
 
