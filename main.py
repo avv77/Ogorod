@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-import time
-from multiprocessing import Process
 import schedule
 import logging
 from datetime import datetime
 import pandas
 from setting import *
+from time import sleep
+from threading import Thread
 
 excel_plan = pandas.read_excel(path, sheet_name='Moscow')
 number_of_rows = len(excel_plan)
@@ -17,6 +17,12 @@ for i in range(number_of_rows):
 
 logger = telebot.logger
 logger.setLevel(logging.DEBUG)
+
+
+def schedule_checker():
+    while True:
+        schedule.run_pending()
+        sleep(1)
 
 
 def send_message(list_into):
@@ -54,22 +60,4 @@ schedule.every().day.at(time1).do(send_message, list_plan_canal)
 schedule.every().day.at(time2).do(send_message, list_plan_canal)
 schedule.every().day.at(time3).do(send_message, list_plan_canal)
 
-
-def packets_to_host():
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
-
-
-def start_process():
-    p1 = Process(target=packets_to_host, args=())
-    p1.start()
-
-
-if __name__ == '__main__':
-    start_process()
-    try:
-        bot.polling(none_stop=True)
-    except:
-        pass
-
+Thread(target=schedule_checker).start()
