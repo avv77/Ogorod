@@ -61,3 +61,4 @@ schedule.every().day.at(time2).do(send_message, list_plan_canal)
 schedule.every().day.at(time3).do(send_message, list_plan_canal)
 
 Thread(target=schedule_checker).start()
+
